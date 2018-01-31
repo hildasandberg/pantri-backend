@@ -10,11 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors())
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/mongoLecture"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/shopper"
 mongoose.connect(mongoUrl, { useMongoClient: true })
-
-// Used when run on local storage
-// mongoose.connect("mongodb://localhost/shopper", { useMongoClient: true })
 
 mongoose.Promise = Promise
 mongoose.connection.on("error", err => console.error("Connection error:", err))
